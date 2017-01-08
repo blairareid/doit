@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15D647E81E21C55500506C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D647E71E21C55500506C88 /* AppDelegate.swift */; };
-		15D647EA1E21C55500506C88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D647E91E21C55500506C88 /* ViewController.swift */; };
+		15D647EA1E21C55500506C88 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D647E91E21C55500506C88 /* TasksViewController.swift */; };
 		15D647ED1E21C55500506C88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D647EB1E21C55500506C88 /* Main.storyboard */; };
 		15D647F01E21C55500506C88 /* Doit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15D647EE1E21C55500506C88 /* Doit.xcdatamodeld */; };
 		15D647F21E21C55500506C88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D647F11E21C55500506C88 /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		15D647E41E21C55500506C88 /* Doit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D647E71E21C55500506C88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		15D647E91E21C55500506C88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		15D647E91E21C55500506C88 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		15D647EC1E21C55500506C88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15D647EF1E21C55500506C88 /* Doit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Doit.xcdatamodel; sourceTree = "<group>"; };
 		15D647F11E21C55500506C88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				15D647E71E21C55500506C88 /* AppDelegate.swift */,
-				15D647E91E21C55500506C88 /* ViewController.swift */,
+				15D647E91E21C55500506C88 /* TasksViewController.swift */,
 				15D647EB1E21C55500506C88 /* Main.storyboard */,
 				15D647FE1E229BF100506C88 /* CreateTaskViewController.swift */,
 				15D647FC1E21CA0600506C88 /* Task.swift */,
@@ -146,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D647FD1E21CA0600506C88 /* Task.swift in Sources */,
-				15D647EA1E21C55500506C88 /* ViewController.swift in Sources */,
+				15D647EA1E21C55500506C88 /* TasksViewController.swift in Sources */,
 				15D647E81E21C55500506C88 /* AppDelegate.swift in Sources */,
 				15D647F01E21C55500506C88 /* Doit.xcdatamodeld in Sources */,
 				15D647FF1E229BF100506C88 /* CreateTaskViewController.swift in Sources */,
