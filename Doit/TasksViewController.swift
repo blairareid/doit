@@ -29,7 +29,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     // Establishes the number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return tasks.count
     }
 
     
@@ -73,6 +73,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    
         let nextVC = segue.destination as! CreateTaskViewController
         
         nextVC.previousVC = self
