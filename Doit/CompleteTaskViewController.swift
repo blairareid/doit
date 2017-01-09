@@ -10,8 +10,8 @@ import UIKit
 
 class CompleteTaskViewController: UIViewController {
 
-    var previousVC = TasksViewController()
-    var task = Task()
+  
+    var task : Task? = nil
     
     @IBOutlet weak var taskLabel: UILabel!
     
@@ -21,12 +21,12 @@ class CompleteTaskViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if task.boolImportant {
-            taskLabel.text = "! \(task.txtName)"
+        if task!.boolImportant {
+            taskLabel.text = "! \(task!.txtName!)"
             
         }
         else {
-          taskLabel.text = task.txtName
+          taskLabel.text = task!.txtName!
             
         }
         
@@ -34,11 +34,13 @@ class CompleteTaskViewController: UIViewController {
 
     @IBAction func completeTapped(_ sender: Any) {
     
-        // Remove tapped entry from array on previous screen
-        previousVC.tasks.remove(at: previousVC.selectedIndex)
+        // delete out of context
         
-        //Force reload of tableview
-        previousVC.tableView.reloadData()
+        let context =  (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        context.delete(task!)
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         // Pop back to previous screen
         navigationController!.popViewController(animated: true)

@@ -17,16 +17,19 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        tasks = makeTasks()  // Load up the array of tasks
-        
-        tableView.dataSource = self
+         tableView.dataSource = self
         tableView.delegate = self
         
         
         
     }
-
+    
+    // Will show up when a view controller show up
+    override func viewWillAppear(_ animated: Bool) {
+        getTasks()
+        tableView.reloadData()
+    }
+    
     // when a tableview row is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -39,6 +42,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Establishes the number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // The list of rows in the tableview
         return tasks.count
     }
 
@@ -49,11 +54,12 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let task = tasks[indexPath.row]
         
         if task.boolImportant {
-            cell.textLabel?.text = "! \(task.txtName)"
+            cell.textLabel?.text = "! \(task.txtName!)"
 
         }
             else {
-            cell.textLabel?.text = task.txtName
+            // Need the exclamtion mark because core data treats as optional
+            cell.textLabel?.text = task.txtName!
            
             }
         
@@ -62,24 +68,20 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    func makeTasks() -> [Task] {
-        let task1 = Task()
-        task1.txtName = "Walk the dog"
-        task1.boolImportant = false
-
-        let task2 = Task()
-        task2.txtName = "Fire the gardner"
-        task2.boolImportant = true
-        
-        let task3 = Task()
-        task3.txtName = "Mow the lawn"
-        task3.boolImportant = false
-      
-        return ([task1, task2, task3])
-    }
     
     @IBAction func plusTapped(_ sender: Any) {
         performSegue(withIdentifier: "addSegue", sender: nil)
+    }
+ 
+    func getTasks() {
+        
+        let context =  (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do {
+            tasks = try context.fetch(Task.fetchRequest()) as! [Task]
+            print(tasks)
+        } catch {
+            print("error")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,16 +89,13 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if segue.identifier == "selectTaskSegue" {
             let nextVC = segue.destination as! CompleteTaskViewController
             nextVC.task = sender as! Task
-            nextVC.previousVC = self
+       
         }
-        if segue.identifier == "addSegue" {
-            let nextVC = segue.destination as! CreateTaskViewController
-            nextVC.previousVC = self
-        }
-
         
         
     }
+    
+
     
 }
 
